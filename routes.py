@@ -15,10 +15,6 @@ class BookingRequest(BaseModel):
     clientName: str
     clientEmail: EmailStr
 
-@router.get("/")
-def connectionCheck():
-    return {"message": "Fitness Booking API is running."}
-
 @router.get("/classes")
 def getClasses(timezone: str = None):
     try:
