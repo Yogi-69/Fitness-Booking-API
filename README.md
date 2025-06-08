@@ -84,10 +84,14 @@ This creates a classes.json and the bookings.json file populated with scheduled 
 ---
 
 ## 🔧 Tech Stack
+
 Python 3.10+
-FastAPI — Web framework for high performance APIs
-Pydantic — Data validation and settings management
-Uvicorn — ASGI server for running FastAPI apps
+
+'FastAPI' — Web framework for high performance APIs
+
+'Pydantic' — Data validation and settings management
+
+'Uvicorn' — ASGI server for running FastAPI apps
 
 
 ---
@@ -140,4 +144,44 @@ python seed.py
 
 ```bash
 uvicorn main:app --reload
+```
+
+
+---
+
+## :cherry_blossom: General Usage
+
+**📆 1. Get Available Classes**
+
+- Without 'timezone'
+
+```bash
+curl http://127.0.0.1:8000/classes
+```
+
+- With 'timezone' `(e.g. America/New_York)`
+  
+```bash
+curl "http://127.0.0.1:8000/classes?timezone=America/New_York"
+```
+
+**📝 2. Book a Class**
+
+Replace values as needed '(classId, clientName, clientEmail)'
+
+```bash
+curl -X POST http://127.0.0.1:8000/book \
+  -H "Content-Type: application/json" \
+  -d '{
+        "classId": 1,
+        "clientName": "John Doe",
+        "clientEmail": "john@example.com"
+      }'
+```
+
+**📩 3. Get Bookings by Email**
+
+Replace the 'email' with the one used in booking
+```bash
+curl "http://127.0.0.1:8000/bookings?email=john@example.com"
 ```
