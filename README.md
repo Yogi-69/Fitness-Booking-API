@@ -40,7 +40,8 @@ Returns a list of all upcoming fitness classes.
 - `timezone`: Timezone string (e.g., `Asia/Kolkata`, `UTC`, `America/New_York`)
 
 **Example:**
-GET /classes?tz=America/New_York
+
+GET /classes?timezone=America/New_York
 
 
 ### 2. `POST /book`
@@ -50,11 +51,13 @@ Book a spot in a class.
 **Request Body:**
 
 `json`
+```
 {
   "class_id": 1,
   "name": "Jane Doe",
   "email": "jane@example.com",
 }
+```
 
 
 ### 3. 'GET /bookings'
