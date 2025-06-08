@@ -37,7 +37,7 @@ A simple yet functional Fitness Booking API built using **FastAPI** — designed
 Returns a list of all upcoming fitness classes.
 
 **Query Parameters (optional):**
-- `tz`: Timezone string (e.g., `Asia/Kolkata`, `UTC`, `America/New_York`)
+- `timezone`: Timezone string (e.g., `Asia/Kolkata`, `UTC`, `America/New_York`)
 
 **Example:**
 GET /classes?tz=America/New_York
@@ -48,11 +48,12 @@ GET /classes?tz=America/New_York
 Book a spot in a class.
 
 **Request Body:**
+
 `json`
 {
+  "class_id": 1,
   "name": "Jane Doe",
   "email": "jane@example.com",
-  "class_id": "hiit_001"
 }
 
 
@@ -62,7 +63,7 @@ Fetch all bookings for a given user.
 
 **Query Parameters:**
 
-email: User email
+`email`: User email
 
 **Example:**
 
@@ -78,6 +79,7 @@ Run the following command to generate mock class data:
 ```bash
 python seed.py
 ```
+
 This creates a classes.json and the bookings.json file populated with scheduled classes and instructor info.
 
 
@@ -87,11 +89,11 @@ This creates a classes.json and the bookings.json file populated with scheduled 
 
 Python 3.10+
 
-'FastAPI' — Web framework for high performance APIs
+`FastAPI` — Web framework for high performance APIs
 
-'Pydantic' — Data validation and settings management
+`Pydantic` — Data validation and settings management
 
-'Uvicorn' — ASGI server for running FastAPI apps
+`Uvicorn` — ASGI server for running FastAPI apps
 
 
 ---
@@ -153,13 +155,13 @@ uvicorn main:app --reload
 
 **📆 1. Get Available Classes**
 
-- Without 'timezone'
+- Without `timezone`
 
 ```bash
 curl http://127.0.0.1:8000/classes
 ```
 
-- With 'timezone' `(e.g. America/New_York)`
+- With `timezone` `(e.g. America/New_York)`
   
 ```bash
 curl "http://127.0.0.1:8000/classes?timezone=America/New_York"
@@ -167,7 +169,7 @@ curl "http://127.0.0.1:8000/classes?timezone=America/New_York"
 
 **📝 2. Book a Class**
 
-Replace values as needed '(classId, clientName, clientEmail)'
+Replace values as needed `(classId, clientName, clientEmail)`
 
 ```bash
 curl -X POST http://127.0.0.1:8000/book \
@@ -181,7 +183,11 @@ curl -X POST http://127.0.0.1:8000/book \
 
 **📩 3. Get Bookings by Email**
 
-Replace the 'email' with the one used in booking
+Replace the `email` with the one used in booking
+
 ```bash
 curl "http://127.0.0.1:8000/bookings?email=john@example.com"
 ```
+
+
+---
