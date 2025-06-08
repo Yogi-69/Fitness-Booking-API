@@ -1,17 +1,17 @@
-Fitness Booking API is a lightweight backend service designed for fitness studios, trainers, or wellness centers to easily manage class schedules and client bookings. 🧘‍♂️💼
+# 🧘‍♀️ Fitness Booking API 🏋️‍♂️
 
-It allows users to:
+A simple yet functional Fitness Booking API built using **FastAPI** — designed to simulate a real-world backend for scheduling fitness classes like **Yoga**, **Zumba**, and **HIIT**. Built with ease-of-use, timezone support, and clean error handling in mind. 💪
 
-📅 View available fitness classes with real-time slot updates
+---
 
-🧾 Book a class by providing basic details (name & email)
+## 🚀 Features
 
-🔍 Check their existing bookings by email
+- 📅 **View Upcoming Classes** — List all scheduled fitness classes.
+- 📝 **Book Your Spot** — Reserve a class using your name, email, and class ID.
+- 🔍 **Check Your Bookings** — Retrieve bookings by email.
+- 🕒 **Timezone Support** — Convert timings from IST to your local timezone.
+- ✅ **Custom Validation Errors** — Cleaner and more informative error messages.
 
-Built using FastAPI, this project is ideal for:
+---
 
-💡 Developers learning backend/API development
-
-🏢 Small studios needing a simple booking system
-
-👩‍💻 Anyone wanting a clean FastAPI project structure to extend or deploy
+## 🛠️ Project Structure
