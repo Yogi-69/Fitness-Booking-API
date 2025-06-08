@@ -1,7 +1,7 @@
 import json
 import os
 from datetime import datetime
-import pytz  # back to using pytz
+import pytz
 
 dataDir = "data"
 classesFile = os.path.join(dataDir, "classes.json")
@@ -39,38 +39,15 @@ def saveBookingsData(bookings):
     except Exception as e:
         raise Exception(f"Failed to save bookings: {str(e)}")
 
-# def convertToTimezone(dateTimeStr, targetTzStr):
-#     try:
-#         dt = datetime.fromisoformat(dateTimeStr)
-#         utc = pytz.utc
-#         dt = dt.replace(tzinfo=utc) if dt.tzinfo is None else dt.astimezone(utc)
-#         targetTz = pytz.timezone(targetTzStr)
-#         return dt.astimezone(targetTz).isoformat()
-#     except Exception as e:
-#         raise Exception(f"Failed to convert timezone: {str(e)}")
 def convertToTimezone(dateTimeStr, targetTzStr):
-    """
-    Convert datetime from IST (stored format) to target timezone
-    
-    Args:
-        dateTimeStr: DateTime string in IST format (e.g., "2024-12-10T09:00:00")
-        targetTzStr: Target timezone string (e.g., "America/New_York")
-    
-    Returns:
-        ISO formatted datetime string in target timezone
-    """
     try:
-        # Parse the datetime (assume it's in IST as stored)
-        dt = datetime.fromisoformat(dateTimeStr)
-        
-        # Set as IST timezone (since classes are created in IST)
+        dt = datetime.fromisoformat(dateTimeStr)        
         ist_tz = pytz.timezone("Asia/Kolkata")
         if dt.tzinfo is None:
             dt_ist = ist_tz.localize(dt)
         else:
             dt_ist = dt.astimezone(ist_tz)
         
-        # Convert to target timezone
         target_tz = pytz.timezone(targetTzStr)
         dt_target = dt_ist.astimezone(target_tz)
         
