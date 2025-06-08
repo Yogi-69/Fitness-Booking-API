@@ -15,3 +15,50 @@ A simple yet functional Fitness Booking API built using **FastAPI** — designed
 ---
 
 ## 🛠️ Project Structure
+
+├── main.py # Entry point, app and custom exception handler
+├── routes.py # All API endpoints using APIRouter
+├── helperFunctions.py # Utility functions: load/save data, timezone conversion
+├── data/
+│ ├── classes.json # Class data
+│ └── bookings.json # Bookings data
+
+## 📌 API Endpoints
+
+### 1. `GET /classes`
+
+Returns a list of all upcoming fitness classes.
+
+**Query Parameters (optional):**
+- `tz`: Timezone string (e.g., `Asia/Kolkata`, `UTC`, `America/New_York`)
+
+**Example:**
+GET /classes?tz=America/New_York
+
+
+---
+
+### 2. `POST /book`
+
+Book a spot in a class.
+
+**Request Body:**
+`json`
+{
+  "name": "Jane Doe",
+  "email": "jane@example.com",
+  "class_id": "hiit_001"
+}
+Responses:
+
+200 OK: Booking successful
+400 Bad Request: Invalid class ID or email format
+3. GET /bookings
+Fetch all bookings for a given user.
+
+Query Parameters:
+
+email: User email
+Example:
+
+GET /bookings?email=jane@example.com
