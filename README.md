@@ -112,7 +112,6 @@ Clear feedback for invalid emails or booking issues
 **Clone the repo:**
 
 ```bash
-Copy code
 git clone https://github.com/yourusername/fitness-booking-api.git
 cd fitness-booking-api
 ```
@@ -120,20 +119,17 @@ cd fitness-booking-api
 **Install dependencies:**
 
 ```bash
-Copy code
 pip install -r requirements.txt
 ```
 
 **Seed mock data:**
 
 ```bash
-Copy code
 python seed.py
 ```
 
 **Run the app:**
 
 ```bash
-Copy code
 uvicorn main:app --reload
 ```
