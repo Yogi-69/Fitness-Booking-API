@@ -43,8 +43,6 @@ Returns a list of all upcoming fitness classes.
 GET /classes?tz=America/New_York
 
 
----
-
 ### 2. `POST /book`
 
 Book a spot in a class.
@@ -56,12 +54,9 @@ Book a spot in a class.
   "email": "jane@example.com",
   "class_id": "hiit_001"
 }
-Responses:
 
-200 OK: Booking successful
-400 Bad Request: Invalid class ID or email format
 
-### 3. GET /bookings
+### 3. 'GET /bookings'
 
 Fetch all bookings for a given user.
 
@@ -74,13 +69,19 @@ email: User email
 GET /bookings?email=jane@example.com
 
 
+---
+
 ## 🧪 Data Seeding
+
 Run the following command to generate mock class data:
 
-bash
-Copy code
+```bash
 python seed.py
-This creates a classes.json file populated with scheduled classes and instructor info.
+```
+This creates a classes.json and the bookings.json file populated with scheduled classes and instructor info.
+
+
+---
 
 ## 🔧 Tech Stack
 Python 3.10+
@@ -89,7 +90,10 @@ Pydantic — Data validation and settings management
 Uvicorn — ASGI server for running FastAPI apps
 
 
+---
+
 ## 🌍 Timezone Handling
+
 The API supports optional timezone conversion for class listings. Internally, all class times are stored in `IST (Indian Standard Time)` and can be converted on-the-fly to the user’s local timezone via the `timezone` query parameter.
 
 Helper utilities also provide human-friendly formatting like:
@@ -99,6 +103,7 @@ tomorrow
 in 3 days
 ```
 
+---
 
 ## ⚠️ Error Handling
 
@@ -106,6 +111,9 @@ in 3 days
 
 Clean and structured error messages
 Clear feedback for invalid emails or booking issues
+
+
+---
 
 ## 🧑‍💻 Getting Started
 
