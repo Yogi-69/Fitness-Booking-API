@@ -61,7 +61,7 @@ Responses:
 200 OK: Booking successful
 400 Bad Request: Invalid class ID or email format
 
-###3. GET /bookings
+### 3. GET /bookings
 
 Fetch all bookings for a given user.
 
@@ -111,8 +111,7 @@ Clear feedback for invalid emails or booking issues
 
 **Clone the repo:**
 
-```
-bash
+```bash
 Copy code
 git clone https://github.com/yourusername/fitness-booking-api.git
 cd fitness-booking-api
@@ -120,24 +119,21 @@ cd fitness-booking-api
 
 **Install dependencies:**
 
-```
-bash
+```bash
 Copy code
 pip install -r requirements.txt
 ```
 
 **Seed mock data:**
 
-```
-bash
+```bash
 Copy code
 python seed.py
 ```
 
 **Run the app:**
 
-```
-bash
+```bash
 Copy code
 uvicorn main:app --reload
 ```
